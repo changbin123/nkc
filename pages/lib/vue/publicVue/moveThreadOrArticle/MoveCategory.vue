@@ -112,7 +112,7 @@ export default {
       let {selectedCid = [], categories = []} = this;
       categories = JSON.parse(JSON.stringify(categories));
       for(const c of categories) {
-        c.selectedNode = null; // null: 未选择, 'default': 默认, {Number}: 具体的属性 ID
+        c.selectedNode = 'default'; // null: 未选择, 'default': 默认, {Number}: 具体的属性 ID
         for(const n of c.nodes) {
           if(selectedCid.includes(n._id)){
             c.selectedNode = n;

@@ -12,7 +12,8 @@ router
     const {page = 0, last_pages, highlight, t, did, redirect, token} = query;
     const {normal: commentStatus, default: defaultComment} = await db.CommentModel.getCommentStatus();
     let article = await db.ArticleModel.findOnly({_id: aid});
-    const categoriesObj = await db.ThreadCategoryModel.getCategories(article.tcId, 'article')
+    const categoriesObj = await db.ThreadCategoryModel.getCategories(article.tcId, 'article');
+    data.allCategories = categoriesObj.allCategories;
     data.categoryList = categoriesObj.categoryList;
     data.categoriesTree = categoriesObj.categoriesTree;
     data.targetUser = await article.extendUser();
