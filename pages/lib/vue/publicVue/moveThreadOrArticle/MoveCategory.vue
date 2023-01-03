@@ -14,17 +14,17 @@
           ) 注意事项：{{ c.warning}}
           .thread-category-nodes
             .thread-category-node(
-              @click='selectThreadCategory(c, "default")'
-              :class="{ active: !c.selectedNode || c.selectedNode === 'default' }"
-            )
-              span {{c.nodeName}}
-            .thread-category-node(
               v-for='n in c.nodes'
               @click='selectThreadCategory(c, n)'
               :class='{"active": c.selectedNode === n}'
               :title='n.description'
             )
               span {{n.name}}
+            .thread-category-node(
+              @click='selectThreadCategory(c, "default")'
+              :class="{ active: !c.selectedNode || c.selectedNode === 'default' }"
+            )
+              span {{c.nodeName}}
           .editor-thread-category-warning.bg-warning.text-warning.p-a-05.bg-border(
             v-if="c.selectedNode && c.selectedNode.warning && isShowWarn"
           ) 注意事项：{{ c.selectedNode.warning }}
@@ -120,6 +120,7 @@ export default {
           }
         }
       }
+      console.log('categories',categories);
       this.processCategories = categories;
     },
     getSelectedCategoriesId() {

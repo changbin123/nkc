@@ -17,6 +17,7 @@ const MoveCategoryBoxAppInZone = new Vue({
       }else{
         article={tcId: data.article.tcId || []}
       }
+      article._id = data.article._id
       this.$refs.moveCategoryBox.open(()=>{},{article})
     }
   },

@@ -159,7 +159,7 @@ router
     const {tcId} = body;
     const {aid} = params;
     if(tcId){
-      await db.ArticleModel.update({_id: aid},{$set: {tcId}})
+      await db.ArticleModel.updateOne({_id: aid},{$set: {tcId}})
     }
     await next();
   });

@@ -28,6 +28,7 @@ if($('#moveCategoryBoxAppInColumns').length > 0) {
         }else{
           article={tcId: data.article.tcId || []}
         }
+        article._id = data.article._id
         this.$refs.moveCategoryBox.open(()=>{},{article})
       }
     },
