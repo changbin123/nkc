@@ -903,7 +903,10 @@ userSchema.statics.createUser = async (option) => {
   }
 
   const user = UserModel(userObj);
-  const userPersonal = UsersPersonalModel(userObj);
+  const userPersonal = UsersPersonalModel({
+    ...userObj,
+    secret: [userObj.secret],
+  });
   const userGeneral = UsersGeneraModel({ uid });
 
   // 生成关注专业记录

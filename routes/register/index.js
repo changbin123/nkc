@@ -67,7 +67,7 @@ registerRouter
     ctx.setCookie('userInfo', {
       uid: user.uid,
       username: user.username,
-      lastLogin: _usersPersonal.secret,
+      lastLogin: _usersPersonal.secret[0],
     });
     ctx.data = {
       user,

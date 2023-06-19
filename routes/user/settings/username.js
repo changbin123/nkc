@@ -62,7 +62,7 @@ router.put('/', async (ctx, next) => {
   ctx.setCookie('userInfo', {
     uid: user.uid,
     username: user.username,
-    lastLogin: _usersPersonal.secret,
+    lastLogin: _usersPersonal.secret[_usersPersonal.secret.length - 1],
   });
   await next();
 });
