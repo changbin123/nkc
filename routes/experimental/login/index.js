@@ -22,7 +22,7 @@ router
     const userPersonal = await db.UsersPersonalModel.findOnly({uid: data.user.uid});
     ctx.setCookie("experimental", {
       uid: data.user.uid,
-      p: userPersonal.secret,
+      p: userPersonal.secret[userPersonal.secret.length - 1],
       secret: safeSettings.experimentalPassword.secret,
       time: Date.now()
     });
